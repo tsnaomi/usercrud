@@ -18,7 +18,7 @@ def list(request, page = 1, message = ""):
 
     return render_response(
         request,
-        'Users/list.html',
+        'users/list.html',
         {'user_list': user_list.page(page),
          'has_previous': has_previous,
          'previous_page': page - 1,

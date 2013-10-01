@@ -1,0 +1,45 @@
+<style>
+p, td {font-family:garamond, helvetica, arial, sans-serif; font-size:14px;}
+h1 {font-family:garamond, helvetica, arial, sans-serif; font-size:28px;}
+a {color: #FF0066;}
+</style>
+
+<h1>Little Black Book of Users</h1>
+
+{% if message %}
+    <b>{{ message }}</b>
+    <p>
+{% endif %}
+{% if user_list %}
+    <table cellpadding="14" cellspacing="0">
+            <tr bgcolor="#FF6699">
+                <td width="100"><b>Given name</b></td>
+                <td width="200"><b>Surname</b></td>
+                <td width="200"><b>Email addy</b></td>
+                <td width="60"><b>Adjust</b></td>
+                <td width="60"><b>Vanquish</b></td>
+            </tr>
+        {% for user in user_list %}
+            <tr bgcolor='{% cycle FFFFFF,f9f9f9 as rowcolor %}'>
+                <td>{{ user.user_firstname }}</td>
+                <td>{{ user.user_lastname }}</td>
+                <td>{{ user.user_email }}</td>
+                <td><a href='/users/edit/{{ user.id }}'>Update</a></td>
+                <td><a href='/users/delete/{{ user.id }}'>Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p>
+        {% if has_previous %}
+            <a href='/users/{{ previous_page }}'>Previous</a>
+            {% if has_next %}|{% endif %}
+        {% endif %}
+        {% if has_next %}
+            <a href='/users/{{ next_page }}'>Next</a>
+        {% endif %}
+        {% else %}
+    <p>No users found.</p>
+{% endif %}
+<p>
+<a href='/users/new'>Create life!</a>
+</p>

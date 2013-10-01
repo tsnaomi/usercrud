@@ -1,0 +1,9 @@
+<form action='/users/{{ action }}/' method='POST'>{% csrf_token %}
+    First name:
+    <input name=user_firstname value='{{ user.user_firstname|escape}}'><br />
+    Last name:
+    <input name=user_lastname value='{{ user.user_lastname|escape }}'><br />
+    Email addy:
+    <input name=user_email value='{{ user.user_email|escape }}'><br />
+    <input type=submit value='{{ button }}'>
+</form>

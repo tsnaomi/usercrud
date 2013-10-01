@@ -115,8 +115,8 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     # 'templates/'
-    # os.path.join(os.path.dirname(__file__), 'templates').replace('\\', '/'),
-    os.path.join(PROJECT_ROOT, 'templates'),
+    os.path.join(os.path.dirname(__file__), 'templates').replace('\\', '/'),
+    # os.path.join(PROJECT_ROOT, 'templates'),
 )
 
 INSTALLED_APPS = (
